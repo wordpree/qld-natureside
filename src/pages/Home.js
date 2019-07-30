@@ -1,10 +1,17 @@
 import React from 'react'
-import entries from '../Contentful'
+import CssBaseLine from '@material-ui/core/CssBaseline'
+import Container from '@material-ui/core/Container'
+import HeaderCon from '../container/HeaderCon'
+
 export default function Home() {
-    entries()
+
     return (
-        <div>
-            hello from home
-        </div>
+        <>
+            <CssBaseLine />
+            <Container maxWidth='xl'>
+            <HeaderCon />
+            
+            </Container>
+        </>
     )
 }
