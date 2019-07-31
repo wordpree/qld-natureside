@@ -1,61 +1,66 @@
-import React from 'react'
-import Drawer from '@material-ui/core/Drawer'
-import Grid from '@material-ui/core/Grid'
-import logo from '../assets/image/logo.png'
-import IconButton from '@material-ui/core/IconButton'
-import {makeStyles} from '@material-ui/core/styles'
-import {ViewSequential,ViewParallel} from 'mdi-material-ui'
-import Paper from '@material-ui/core/Paper'
+import React from "react";
+import { Link } from "react-router-dom";
+import Drawer from "@material-ui/core/Drawer";
+import Grid from "@material-ui/core/Grid";
+import IconButton from "@material-ui/core/IconButton";
+import { makeStyles } from "@material-ui/core/styles";
+import { ViewSequential } from "mdi-material-ui";
+import logo from "../assets/image/logo.png";
+import DrawerPanel from "./DrawerPanel";
 
-const width = window.innerWidth*0.8
 const useStyles = makeStyles({
-    root:{
-        position:"fixed",
-        top:'10%',
-        left:'10%',
-    },
-    item:{
-        alignSelf:'center',
-        textAlign:'center'
-    },
-    logo:{
-        minWidth:'4rem',
-        minHeight:'4rem',
-        backgroundImage:`url(${logo})`,
-        backgroundSize:'cover'
-    },
-    view:{
-       
-    },
-    paper:{
-        width:`${width}px`,
-        height:'120px'
-    }
+  root: {
+    position: "fixed",
+    top: "10%",
+    left: "12%"
+  },
+  item: {
+    alignSelf: "center",
+    textAlign: "center"
+  },
+  logo: {
+    minWidth: "4rem",
+    minHeight: "4rem",
+    backgroundImage: `url(${logo})`,
+    backgroundSize: "cover"
+  },
+  expand: {
+    transform: "rotate(0deg)",
+    transition: "transform 0.8s ease-out"
+  },
+  expanded: {
+    transform: "rotate(90deg)",
+    transition: "transform 0.8s ease-in"
+  }
+});
 
-})
-
-export default function Header({drawerOpen,hanldeClickDrawer}) {
-    const classes = useStyles()
-    return (
-        <>
-            <Grid container className={classes.root} spacing={2}>
-                <Grid item xs={6}>
-                    <IconButton size='medium' className={classes.logo}></IconButton>
-                </Grid>
-                <Grid item xs={6} className={classes.item}>
-                    <IconButton 
-                        className={classes.view} 
-                        onClick={()=>hanldeClickDrawer(true)}
-                    >
-                        <ViewSequential />
-                    </IconButton>
-                    <Drawer open={drawerOpen} onClose={()=>hanldeClickDrawer(false)}>
-                        <Paper className={classes.paper}>
-                            This is from paper
-                        </Paper>
-                    </Drawer>
-                </Grid>
-            </Grid>
-        </>
-    )
+export default function Header({ drawerOpen, hanldeClickDrawer }) {
+  const classes = useStyles();
+  return (
+    <Grid container className={classes.root} spacing={2}>
+      <Grid item xs={6}>
+        <Link to="/">
+          <IconButton size="medium" className={classes.logo} />
+        </Link>
+      </Grid>
+      <Grid item xs={6} className={classes.item}>
+        <IconButton
+          className={drawerOpen ? classes.expanded : classes.expand}
+          onClick={() => hanldeClickDrawer(true)}
+          aria-expanded={drawerOpen}
+          aria-label="open drawer"
+          color="primary"
+        >
+          {<ViewSequential />}
+        </IconButton>
+        <Drawer
+          transitionDuration={{ enter: 900, exit: 500 }}
+          open={drawerOpen}
+          onClose={() => hanldeClickDrawer(false)}
+        >
+          <DrawerPanel closeDrawer={hanldeClickDrawer} />
+        </Drawer>
+      </Grid>
+    </Grid>
+  );
 }
