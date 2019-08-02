@@ -4,21 +4,24 @@ export const drawerClick = drawerOpen => ({
   type: "DRAWER_CLICK",
   payload: drawerOpen
 });
-export const fetchDataBegin = () => ({
+
+const fetchDataBegin = () => ({
   type: "FETCH_DATA_BEGIN",
   payload: true
 });
-export const fetchDataSuccess = data => ({
+
+const fetchDataSuccess = data => ({
   type: "FETCH_DATA_SUCCESS",
-  payload: data
+  payload: data,
+  success: true
 });
 
-export const fetchDataFailure = err => ({
+const fetchDataFailure = err => ({
   type: "FETCH_DATA_FAILURE",
   payload: err
 });
 
-export const fetchData = () => dispatch => {
+const fetchData = () => dispatch => {
   dispatch(fetchDataBegin());
   return contentfulClient
     .getEntries()
@@ -26,4 +29,11 @@ export const fetchData = () => dispatch => {
       dispatch(fetchDataSuccess(response.items.map(item => item.fields)))
     )
     .catch(err => dispatch(fetchDataFailure(err)));
+};
+
+export const shouldFetchData = () => (dispatch, getState) => {
+  const { fetch } = getState();
+  if (!fetch.data && !fetch.isFetching) {
+    return dispatch(fetchData());
+  }
 };

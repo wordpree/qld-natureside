@@ -1,25 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "@material-ui/core/Container";
+import DrawerHeader from "./DrawerHeader";
 import DrawerFeatureCon from "../container/DrawerFeatureCon";
 import DrawerParkLists from "./DrawerParkLists";
 import DrawerInfo from "./DrawerInfo";
 import DrawerFooter from "./DrawerFooter";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyle = makeStyles({
-  container: { backgroundColor: "#EEF0EF" }
-});
 
 export default function DrawerPanel(props) {
-  const classes = useStyle();
+  const [width, setWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    function handleResize() {
+      setWidth(window.innerWidth);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [width]);
   return (
-    <Container className={classes.container} maxWidth="xl">
+    <Container
+      style={{
+        backgroundColor: "#EEF0EF",
+        width: `${width}px`
+      }}
+      maxWidth="xl"
+    >
       <div>
+        <DrawerHeader {...props} />
         <DrawerParkLists />
         <DrawerInfo />
         <DrawerFeatureCon />
       </div>
-      <div className={classes.footer}>
+      <div>
         <DrawerFooter />
       </div>
     </Container>

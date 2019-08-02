@@ -6,7 +6,13 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 const initialState = {
   click: { left: false },
-  fetch: { isFetching: false, failure: null, data: null }
+  fetch: {
+    success: false,
+    isFetching: false,
+    failure: null,
+    featuredImg: null,
+    data: null
+  }
 };
 const store = createStore(
   rootReducer,

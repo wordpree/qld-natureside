@@ -1,6 +1,8 @@
 const initialState = {
+  success: false,
   isFetching: false,
   failure: null,
+  featuredImage: null,
   data: null
 };
 const drawerFetchReducer = (state = initialState, action) => {
@@ -19,7 +21,15 @@ const drawerFetchReducer = (state = initialState, action) => {
       console.log(action.payload);
       return {
         ...state,
-        data: action.payload
+        featuredImage: action.payload.map(item => {
+          return {
+            url: item.featuredImage.fields.file.url,
+            name: item.name,
+            createdAt: new Date(item.featuredImage.sys.createdAt).toString()
+          };
+        }),
+        data: action.payload,
+        success: action.success
       };
     default:
       return state;
