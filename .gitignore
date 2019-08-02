@@ -8,6 +8,10 @@
 #env variables
 /.env*
 
+#firebase deploy
+/.firebase*
+/firebase*
+
 # testing
 /coverage
 
