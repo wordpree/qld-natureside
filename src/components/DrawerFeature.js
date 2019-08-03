@@ -3,6 +3,9 @@ import Typography from "@material-ui/core/Typography";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
+import IconButton from "@material-ui/core/IconButton";
+import DotsVertical from "mdi-material-ui/DotsVertical";
+import Tooltip from "@material-ui/core/Tooltip";
 import { makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { shouldFetchData } from "../redux/action";
@@ -31,6 +34,7 @@ const useStyle = makeStyles({
 });
 
 export default function DrawerFeature({ dispatch, featuredImage, success }) {
+  const replaceStr = "GMT+1000 (Australian Eastern Standard Time)";
   const md = useMediaQuery("(max-width:960px)");
   const xl = useMediaQuery("(min-width:1280px)");
   const cellHeight = xl ? 300 : md ? 180 : 240;
@@ -49,7 +53,16 @@ export default function DrawerFeature({ dispatch, featuredImage, success }) {
           <img src={item.url} alt="nature images" />
           <GridListTileBar
             title={item.name}
-            subtitle={<span>Created At:{item.createdAt}</span>}
+            subtitle={
+              <span>Created At:{item.createdAt.replace(replaceStr, "")}</span>
+            }
+            actionIcon={
+              <IconButton>
+                <Tooltip title="Learn More">
+                  <DotsVertical style={{ color: "#fff" }} />
+                </Tooltip>
+              </IconButton>
+            }
           />
         </GridListTile>
       ))
