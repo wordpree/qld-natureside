@@ -25,15 +25,11 @@ export default function DrawerPanel(props) {
       }}
       maxWidth="xl"
     >
-      <div>
-        <DrawerHeader {...props} />
-        <DrawerParkLists />
-        <DrawerInfo />
-        <DrawerFeatureCon />
-      </div>
-      <div>
-        <DrawerFooter />
-      </div>
+      <DrawerHeader {...props} />
+      <DrawerParkLists />
+      <DrawerInfo />
+      <DrawerFeatureCon />
+      <DrawerFooter />
     </Container>
   );
 }
