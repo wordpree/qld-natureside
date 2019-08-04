@@ -18,7 +18,7 @@ export default function Hero() {
     function hanldeIndex() {
       index === 2 ? setIndex(0) : setIndex(index + 1);
     }
-    const id = setTimeout(hanldeIndex, 3000);
+    const id = setTimeout(hanldeIndex, 5000);
     return () => clearTimeout(id);
   }, [index]);
   return (
