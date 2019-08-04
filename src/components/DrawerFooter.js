@@ -16,6 +16,9 @@ const useStyle = makeStyles({
     display: "flex",
     justifyContent: "center"
   },
+  iconBtn: {
+    color: "#000"
+  },
   social: {
     maxWidth: "20rem",
     margin: "0 auto",

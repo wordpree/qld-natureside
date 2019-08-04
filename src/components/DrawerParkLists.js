@@ -18,7 +18,7 @@ export default function DrawerParkLists() {
   ));
   return (
     <section className={classes.sTop}>
-      <Grid className={classes.gridTop} container>
+      <Grid className={classes.gridTop} container spacing={2}>
         {ParkLists}
       </Grid>
     </section>

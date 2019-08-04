@@ -26,11 +26,13 @@ const useStyles = makeStyles({
   },
   expand: {
     transform: "rotate(0deg)",
-    transition: "transform 0.8s ease-out"
+    transition: "transform 0.8s ease-out",
+    color: "#fff"
   },
   expanded: {
     transform: "rotate(90deg)",
-    transition: "transform 0.8s ease-in"
+    transition: "transform 0.8s ease-in",
+    color: "rgba(255,255,255,0.88)"
   }
 });
 
@@ -49,7 +51,6 @@ export default function Header({ drawerOpen, hanldeClickDrawer }) {
           onClick={() => hanldeClickDrawer(true)}
           aria-expanded={drawerOpen}
           aria-label="open drawer"
-          color="primary"
         >
           {<ViewSequential />}
         </IconButton>

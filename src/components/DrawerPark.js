@@ -27,7 +27,7 @@ const useStyle = makeStyles({
 export default function DrawerPark({ title, description, urls }) {
   const classes = useStyle();
   return (
-    <Grid item xs={6}>
+    <Grid item xs={12} md={6}>
       <Card className={classes.card}>
         <CardActionArea>
           <CardMedia
