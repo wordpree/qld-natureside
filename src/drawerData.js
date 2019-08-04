@@ -34,5 +34,5 @@ export const avatar = {
 };
 
 export const bgImg = {
-  urls: [bg1, bg2, bg3]
+  figure: [bg1, bg2, bg3]
 };

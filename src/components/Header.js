@@ -11,8 +11,9 @@ import DrawerPanel from "./DrawerPanel";
 const useStyles = makeStyles({
   root: {
     position: "fixed",
-    top: "10%",
-    left: "12%"
+    top: "9%",
+    left: "12%",
+    zIndex: 999
   },
   item: {
     alignSelf: "center",

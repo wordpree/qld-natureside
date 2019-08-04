@@ -1,0 +1,14 @@
+.auto-transition-enter {
+  opacity: 0;
+}
+.auto-transition-enter-active {
+  opacity: 1;
+  transition: opacity 1500ms;
+}
+.auto-transition-exit {
+  opacity: 1;
+}
+.auto-transition-exit-active {
+  opacity: 0;
+  transition: opacity 1500ms;
+}
