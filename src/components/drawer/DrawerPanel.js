@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Container from "@material-ui/core/Container";
 import DrawerHeader from "./DrawerHeader";
-import DrawerFeatureCon from "../container/DrawerFeatureCon";
+import DrawerFeatureCon from "../../container/DrawerFeatureCon";
 import DrawerParkLists from "./DrawerParkLists";
 import DrawerInfo from "./DrawerInfo";
 import DrawerFooter from "./DrawerFooter";
@@ -21,7 +21,8 @@ export default function DrawerPanel(props) {
     <Container
       style={{
         backgroundColor: "#EEF0EF",
-        width: `${width}px`
+        width: `${width}px`,
+        padding: "0.25rem"
       }}
       maxWidth="xl"
     >

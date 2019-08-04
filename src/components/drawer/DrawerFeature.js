@@ -8,9 +8,9 @@ import DotsVertical from "mdi-material-ui/DotsVertical";
 import Tooltip from "@material-ui/core/Tooltip";
 import { makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { shouldFetchData } from "../redux/action";
+import { shouldFetchData } from "../../redux/action";
 
-const useStyle = makeStyles({
+const useStyle = makeStyles(theme => ({
   sBottom: {
     marginBottom: "2rem"
   },
@@ -24,14 +24,16 @@ const useStyle = makeStyles({
     justifyContent: "space-around",
     overflow: "hidden",
     flexWrap: "wrap",
-    padding: "1rem 1rem"
+    [theme.breakpoints.up("md")]: {
+      padding: "1rem"
+    }
   },
   gridlist: {
     transform: "translateZ(0)",
     flexWrap: "nowrap",
     backgroundColor: "#fff"
   }
-});
+}));
 
 export default function DrawerFeature({ dispatch, featuredImage, success }) {
   const replaceStr = "GMT+1000 (Australian Eastern Standard Time)";
@@ -40,6 +42,7 @@ export default function DrawerFeature({ dispatch, featuredImage, success }) {
   const cellHeight = xl ? 300 : md ? 180 : 240;
   const cols = xl ? 3 : 2;
   const classes = useStyle();
+
   useEffect(() => {
     async function fetchContentfulData() {
       await dispatch(shouldFetchData());

@@ -1,12 +1,12 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-
+import Button from "@material-ui/core/Button";
 const useStyle = makeStyles({
   header: {
     display: "flex",
     justifyContent: "space-around",
-    padding: "1.75rem 0",
+    padding: "1.75rem 1rem",
     margin: "0 auto"
   },
   typo: {
@@ -28,7 +28,7 @@ export default function DrawerHeader({ closeDrawer }) {
         variant="h6"
         onClick={() => closeDrawer()}
       >
-        Home
+        <Button>Home</Button>
       </Typography>
     </header>
   );

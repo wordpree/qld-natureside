@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { bgImg } from "../drawerData";
+import { bgImg } from "../../drawerData";
 import { makeStyles } from "@material-ui/core/styles";
 import { CSSTransition } from "react-transition-group";
-import "../assets/style/style.css";
+import Banner from "./Banner";
+import "../../assets/style/style.css";
 
 const useStyles = makeStyles({
   figure: {
@@ -44,5 +45,10 @@ export default function Hero() {
       </CSSTransition>
     );
   });
-  return <div className={classes.hero}>{figureLists}</div>;
+  return (
+    <div className={classes.hero}>
+      {figureLists}
+      <Banner />
+    </div>
+  );
 }

@@ -5,8 +5,8 @@ import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import { makeStyles } from "@material-ui/core/styles";
 import { ViewSequential } from "mdi-material-ui";
-import logo from "../assets/image/logo.png";
-import DrawerPanel from "./DrawerPanel";
+import logo from "../../assets/image/logo.png";
+import DrawerPanel from "../drawer/DrawerPanel";
 
 const useStyles = makeStyles({
   root: {

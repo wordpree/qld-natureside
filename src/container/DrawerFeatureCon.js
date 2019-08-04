@@ -1,4 +1,4 @@
-import DrawerFeature from "../components/DrawerFeature";
+import DrawerFeature from "../components/drawer/DrawerFeature";
 import { connect } from "react-redux";
 
 const mapStateToProps = state => ({

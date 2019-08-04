@@ -4,7 +4,7 @@ import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 import { Bike, Hiking, RunFast, PineTree, Ladybug } from "mdi-material-ui/";
 import { makeStyles } from "@material-ui/core/styles";
-import { avatar } from "../drawerData";
+import { avatar } from "../../drawerData";
 
 const useStyle = makeStyles({
   sMiddle: {

@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import Header from "../components/home/Header";
 import { connect } from "react-redux";
 import { drawerClick } from "../redux/action";
 
