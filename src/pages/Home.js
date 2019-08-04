@@ -2,7 +2,7 @@ import React from "react";
 import CssBaseLine from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import HeaderCon from "../container/HeaderCon";
-import Hero from "../components/Hero";
+import Hero from "../components/home/Hero";
 export default function Home() {
   return (
     <>
