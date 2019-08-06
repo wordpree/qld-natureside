@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   header: {
-    padding: "0.5rem"
+    padding: "0.5rem",
+    marginBottom: "1.5rem"
   },
   gridContainer: {
     justifyContent: "space-around"
@@ -25,18 +26,18 @@ export default function ParaHeader() {
   const classes = useStyles();
   return (
     <header className={classes.header}>
-      <Grid container className={classes.gridContainer}>
-        <Grid item>
-          <Typography className={classes.typo} variant="h5">
-            QLD Parks and Recreation Areas Page
-          </Typography>
-        </Grid>
+      <Grid container className={classes.gridContainer} spacing={2}>
         <Grid item>
           <Link to="/" className={classes.link}>
             <Button>
               <Typography className={classes.typo}>Home</Typography>
             </Button>
           </Link>
+        </Grid>
+        <Grid item>
+          <Typography className={classes.typo} variant="h5">
+            QLD Parks and Recreation Areas Page
+          </Typography>
         </Grid>
       </Grid>
     </header>

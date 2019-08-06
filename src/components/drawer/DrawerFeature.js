@@ -49,7 +49,6 @@ export default function DrawerFeature({ dispatch, featuredImage, success }) {
     }
     fetchContentfulData();
   });
-  console.log("data:", featuredImage);
   const listCont = success
     ? featuredImage.map(item => (
         <GridListTile key={item.url}>

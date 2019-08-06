@@ -11,6 +11,7 @@ const initialState = {
     isFetching: false,
     failure: null,
     featuredImg: null,
+    iamge: null,
     data: null
   }
 };

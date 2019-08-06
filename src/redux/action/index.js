@@ -12,8 +12,7 @@ const fetchDataBegin = () => ({
 
 const fetchDataSuccess = data => ({
   type: "FETCH_DATA_SUCCESS",
-  payload: data,
-  success: true
+  payload: { data, success: true }
 });
 
 const fetchDataFailure = err => ({

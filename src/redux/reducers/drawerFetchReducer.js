@@ -10,26 +10,34 @@ const drawerFetchReducer = (state = initialState, action) => {
     case "FETCH_DATA_BEGIN":
       return {
         ...state,
-        isFetching: action.payload
+        isFetching: action.payload,
+        success: false
       };
     case "FETCH_DATA_FAILURE":
       return {
         ...state,
-        failure: action.payload
+        failure: action.payload,
+        success: false
       };
     case "FETCH_DATA_SUCCESS":
-      console.log(action.payload);
       return {
         ...state,
-        featuredImage: action.payload.map(item => {
+        featuredImage: action.payload.data.map(item => {
           return {
             url: item.featuredImage.fields.file.url,
             name: item.name,
             createdAt: new Date(item.featuredImage.sys.createdAt).toString()
           };
         }),
-        data: action.payload,
-        success: action.success
+        image: action.payload.data.map(item => {
+          return {
+            name: item.name,
+            image: item.images[0].fields.file.url
+          };
+        }),
+        isFetching: false,
+        data: action.payload.data,
+        success: action.payload.success
       };
     default:
       return state;
