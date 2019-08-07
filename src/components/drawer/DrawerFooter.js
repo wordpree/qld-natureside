@@ -43,7 +43,7 @@ const useStyle = makeStyles({
 export default function DrawerFooter() {
   const classes = useStyle();
   const fbHref =
-    "https://www.facebook.com/dialog/share?app_id=336368817292380&display=popup&href=https://spa-demo-e4d44.firebaseapp.com/&redirect_uri=https://qld-natureside.netlify.com/";
+    "https://www.facebook.com/dialog/share?app_id=336368817292380&display=popup&href=https://qld-natureside.netlify.com/&redirect_uri=https://qld-natureside.netlify.com/";
   const twHref =
     "https://twitter.com/intent/tweet?text=Here we go&url=https://qld-natureside.netlify.com/&hashtags=reactjs,spa";
   const lkiHref =
