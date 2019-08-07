@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-
+import img from "../../assets/image/share.jpg";
 const useStyles = makeStyles({
   header: {
     padding: "0.5rem",
@@ -24,6 +24,7 @@ const useStyles = makeStyles({
 
 function ParaHeader(props) {
   const classes = useStyles();
+  console.log(img);
   return (
     <header className={classes.header}>
       <Grid container className={classes.gridContainer} spacing={2}>
