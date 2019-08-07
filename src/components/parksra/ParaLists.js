@@ -13,13 +13,16 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyle = makeStyles(theme => ({
-  bar: {
+  middleBar: {
     backgroundColor: "inherit",
     top: "30%",
     left: "50%",
     transform: "translateX(-50%)",
     WebkitTransform: "translateX(-50%)",
     textAlign: "center"
+  },
+  bottomBar: {
+    fontSize: "80%"
   },
   iconBtn: {
     color: "#fff"
@@ -64,7 +67,7 @@ export default function ParaParkLists({
       <GridListTile key={key} spacing={6}>
         <img src={photo.image} alt={photo.name} />
         <GridListTileBar
-          className={classes.bar}
+          className={classes.middleBar}
           title={
             <Link to={url + "/" + photo.name} className={classes.link}>
               <Button variant="outlined" className={classes.btn}>
@@ -76,6 +79,7 @@ export default function ParaParkLists({
           }
         />
         <GridListTileBar
+          classes={{ title: classes.bottomBar }}
           title={photo.name}
           actionIcon={
             <Link to={url + "/" + photo.name}>

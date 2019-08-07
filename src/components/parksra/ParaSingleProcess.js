@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
   cardSmall: {
     width: "32%",
-    height: 92,
+    height: 120,
     cursor: "pointer"
   },
   media: {
@@ -33,9 +33,10 @@ const useStyles = makeStyles({
     margin: "0 auto"
   }
 });
-export default function ParaParkSingle({ data, slug }) {
+export default function ParaParkSingle({ park }) {
   const classes = useStyles();
-  const park = data.find(item => item.name === slug);
+
+  let output = null;
   console.log(park);
   const {
     fullName,
@@ -98,18 +99,20 @@ export default function ParaParkSingle({ data, slug }) {
     </Grid>
   );
   const section2 = (
+    <Card className={classes.alert}>
+      <CardHeader
+        title="Park Alerts"
+        avatar={<AlertOutline style={{ color: "yellow" }} />}
+      />
+      <CardContent>
+        <Typography>{alerts}</Typography>
+      </CardContent>
+    </Card>
+  );
+  output = (
     <>
-      {section1}
-      <Card className={classes.alert}>
-        <CardHeader
-          title="Park Alerts"
-          avatar={<AlertOutline style={{ color: "yellow" }} />}
-        />
-        <CardContent>
-          <Typography>{alerts}</Typography>
-        </CardContent>
-      </Card>
+      {section1} {section2}
     </>
   );
-  return <Container>{section2}</Container>;
+  return <Container>{output}</Container>;
 }

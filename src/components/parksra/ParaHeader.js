@@ -1,6 +1,6 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
@@ -22,24 +22,26 @@ const useStyles = makeStyles({
   }
 });
 
-export default function ParaHeader() {
+function ParaHeader(props) {
   const classes = useStyles();
   return (
     <header className={classes.header}>
       <Grid container className={classes.gridContainer} spacing={2}>
         <Grid item>
-          <Link to="/" className={classes.link}>
+          <Link to={props.link} className={classes.link}>
             <Button>
-              <Typography className={classes.typo}>Home</Typography>
+              <Typography className={classes.typo}>Go Back</Typography>
             </Button>
           </Link>
         </Grid>
         <Grid item>
           <Typography className={classes.typo} variant="h5">
-            QLD Parks and Recreation Areas Page
+            {props.title}
           </Typography>
         </Grid>
       </Grid>
     </header>
   );
 }
+
+export default ParaHeader;

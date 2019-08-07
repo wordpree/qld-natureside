@@ -31,7 +31,7 @@ const drawerFetchReducer = (state = initialState, action) => {
         }),
         image: action.payload.data.map(item => {
           return {
-            name: item.name,
+            name: item.fullName,
             image: item.images[0].fields.file.url
           };
         }),

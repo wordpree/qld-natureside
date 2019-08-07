@@ -10,9 +10,14 @@ export default function ParaSingle(props) {
     }
     handleDataFetch();
   });
-  return success === true ? (
-    <ParaSingleProcess slug={slug} data={data} />
-  ) : (
-    <ParaSingleLoad />
-  );
+  if (success === true) {
+    const park = data.find(item => item.fullName === slug);
+    if (park) {
+      return <ParaSingleProcess park={park} />;
+    } else {
+      return <div>hello from no park found page</div>;
+    }
+  } else {
+    return <ParaSingleLoad />;
+  }
 }

@@ -6,7 +6,7 @@ import Container from "@material-ui/core/Container";
 export default function ParkRaPic({ match }) {
   return (
     <Container>
-      <ParaHeader />
+      <ParaHeader title="QLD Parks and Recreation Areas Page" link="/" />
       <ParaListsCon url={match.url} />
     </Container>
   );
