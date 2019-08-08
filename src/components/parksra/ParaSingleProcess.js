@@ -1,118 +1,48 @@
-import React, { useState } from "react";
-import {
-  Grid,
-  List,
-  ListItem,
-  Container,
-  Typography,
-  ListItemText,
-  Card,
-  CardMedia,
-  CardHeader,
-  CardContent
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { AlertOutline } from "mdi-material-ui";
-const useStyles = makeStyles({
-  cardLarge: {
-    width: "100%",
-    height: 250
-  },
-  cardSmall: {
-    width: "32%",
-    height: 120,
-    cursor: "pointer"
-  },
-  media: {
-    height: "100%",
-    transition: "all 0.4s linear 0.1s",
-    backgroundSize: "cover"
-  },
-  alert: {
-    maxWidth: "93%",
-    margin: "0 auto"
-  }
-});
-export default function ParaParkSingle({ park }) {
-  const classes = useStyles();
+import React from "react";
+import SectionEntry from "./singlePageSections/SectionEntry";
+import SectionActivity from "./singlePageSections/SectionActivity";
+import SectionFacility from "./singlePageSections/SectionFacility";
+import SectionParkAlert from "./singlePageSections/SectionParkAlert";
+import SectionEss from "./singlePageSections/SectionEss";
 
-  let output = null;
+function ParaParkSingle({ park }) {
   console.log(park);
   const {
     fullName,
     images,
     description,
-    address,
+    facilities,
+    activities,
     location,
     type,
+    essentials,
     openingHours,
     alerts
   } = park;
-  const lists = [fullName, type, openingHours, location, description];
-  const [, , ...left] = images;
-  const [bgImg, setBgImg] = useState(left[0].fields.file.url);
+  const entryLists = [fullName, type, openingHours, location, description];
+  const [fityImage, actImage, ...entryImage] = images;
+  const propsFacility = {
+    lists: facilities,
+    image: fityImage,
+    title: "You can access this site's facilities",
+    reverse: false
+  };
+  const propsActivity = {
+    lists: activities,
+    image: actImage,
+    title: "You can take part in all these activities",
+    reverse: true
+  };
 
-  const section1 = (
-    <Grid container spacing={3}>
-      <Grid item xs={12} md={6}>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Card className={classes.cardLarge}>
-              <CardMedia
-                image={bgImg}
-                style={{ backgroundImage: `url(${bgImg})` }}
-                className={classes.media}
-                title="Paella dish"
-              />
-            </Card>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            style={{ display: "flex", justifyContent: "space-around" }}
-          >
-            {left.map((item, index) => (
-              <Card key={index} className={classes.cardSmall}>
-                <CardMedia
-                  image={item.fields.file.url}
-                  className={classes.media}
-                  onClick={event => {
-                    let temp = event.target.style.backgroundImage;
-                    setBgImg(temp.slice(4, temp.length - 1));
-                  }}
-                />
-              </Card>
-            ))}
-          </Grid>
-        </Grid>
-      </Grid>
-
-      <Grid item xs={12} md={6}>
-        <List>
-          {lists.map((list, index) => (
-            <ListItem alignItems="flex-start" key={index}>
-              <ListItemText primary={list} />
-            </ListItem>
-          ))}
-        </List>
-      </Grid>
-    </Grid>
-  );
-  const section2 = (
-    <Card className={classes.alert}>
-      <CardHeader
-        title="Park Alerts"
-        avatar={<AlertOutline style={{ color: "yellow" }} />}
-      />
-      <CardContent>
-        <Typography>{alerts}</Typography>
-      </CardContent>
-    </Card>
-  );
-  output = (
+  return (
     <>
-      {section1} {section2}
+      <SectionEntry lists={entryLists} image={entryImage} />
+      <SectionFacility {...propsFacility} />
+      <SectionActivity {...propsActivity} />
+      <SectionEss essentials={essentials} />
+      <SectionParkAlert alerts={alerts} />
     </>
   );
-  return <Container>{output}</Container>;
 }
+
+export default ParaParkSingle;

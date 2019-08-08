@@ -13,6 +13,10 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyle = makeStyles(theme => ({
+  sList: {
+    padding: "3.5rem",
+    background: "#E1EDE6"
+  },
   middleBar: {
     backgroundColor: "inherit",
     top: "30%",
@@ -64,7 +68,7 @@ export default function ParaParkLists({
   });
   if (success) {
     gridLists = images.map((photo, key) => (
-      <GridListTile key={key} spacing={6}>
+      <GridListTile key={key}>
         <img src={photo.image} alt={photo.name} />
         <GridListTileBar
           className={classes.middleBar}
@@ -98,8 +102,10 @@ export default function ParaParkLists({
   return (
     <main>
       <section />
-      <section>
-        <GridList cols={cols}>{gridLists}</GridList>
+      <section className={classes.sList}>
+        <GridList cols={cols} spacing={24}>
+          {gridLists}
+        </GridList>
       </section>
     </main>
   );
