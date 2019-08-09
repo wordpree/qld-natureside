@@ -13,6 +13,7 @@ export default function ParaSingle(props) {
   if (success === true) {
     const park = data.find(item => item.fullName === slug);
     if (park) {
+      console.log(park.type);
       return <ParaSingleProcess park={park} />;
     } else {
       return <div>hello from no park found page</div>;

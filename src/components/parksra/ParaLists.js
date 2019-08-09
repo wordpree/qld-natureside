@@ -11,9 +11,10 @@ import { DotsVertical } from "mdi-material-ui/";
 import { Link } from "react-router-dom";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { makeStyles } from "@material-ui/core/styles";
+import FormCtrl from "./FormCtrl";
 
 const useStyle = makeStyles(theme => ({
-  sList: {
+  section: {
     padding: "3.5rem",
     background: "#FAFAFA",
     maxWidth: 1520,
@@ -117,8 +118,11 @@ export default function ParaParkLists({
 
   return (
     <main>
-      <section />
-      <section className={classes.sList}>
+      <section className={classes.section}>
+        <Typography>Set your options</Typography>
+        <FormCtrl />
+      </section>
+      <section className={classes.section}>
         <GridList cols={cols} spacing={24}>
           {gridLists}
         </GridList>
