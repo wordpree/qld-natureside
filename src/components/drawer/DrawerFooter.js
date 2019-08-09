@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyle = makeStyles({
   footer: {
-    backgroundColor: "#7A5656",
+    backgroundColor: "#00303f",
     padding: "2rem 0 3rem 0",
     textAlign: "center"
   },
@@ -17,7 +17,7 @@ const useStyle = makeStyles({
     justifyContent: "center"
   },
   iconBtn: {
-    color: "#000"
+    color: "#dcae1d"
   },
   social: {
     maxWidth: "20rem",
@@ -26,7 +26,8 @@ const useStyle = makeStyles({
   },
   typo: {
     fontFamily: "'EB Garamond', sans-serif,serif",
-    textAlign: "center"
+    textAlign: "center",
+    color: "#dcae1d"
   },
   hr: {
     height: "1px",
@@ -74,7 +75,12 @@ export default function DrawerFooter() {
         <List className={classes.list}>{listItems}</List>
         <hr className={classes.hr} />
       </div>
-      <Typogrphy gutterBottom variant="subtitle2" component="span">
+      <Typogrphy
+        gutterBottom
+        variant="subtitle2"
+        component="span"
+        className={classes.typo}
+      >
         &copy;Jun
         <br />
         photos for attention purpose

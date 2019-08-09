@@ -32,6 +32,12 @@ const useStyle = makeStyles(theme => ({
     transform: "translateZ(0)",
     flexWrap: "nowrap",
     backgroundColor: "#fff"
+  },
+  tileBar: {
+    background: "#dcae1d"
+  },
+  title: {
+    color: "#00303f"
   }
 }));
 
@@ -54,6 +60,8 @@ export default function DrawerFeature({ dispatch, featuredImage, success }) {
         <GridListTile key={item.url}>
           <img src={item.url} alt="nature images" />
           <GridListTileBar
+            classes={{ title: classes.title, subtitle: classes.title }}
+            className={classes.tileBar}
             title={item.name}
             subtitle={
               <span>Created At:{item.createdAt.replace(replaceStr, "")}</span>
@@ -61,7 +69,7 @@ export default function DrawerFeature({ dispatch, featuredImage, success }) {
             actionIcon={
               <IconButton>
                 <Tooltip title="Learn More">
-                  <DotsVertical style={{ color: "#fff" }} />
+                  <DotsVertical style={{ color: "#00303f" }} />
                 </Tooltip>
               </IconButton>
             }

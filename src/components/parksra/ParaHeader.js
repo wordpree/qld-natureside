@@ -9,7 +9,7 @@ import logo from "../../assets/image/logo.png";
 const useStyles = makeStyles({
   header: {
     padding: "1.5rem",
-    background: "#AD9C9C"
+    background: "#7a9d96"
   },
   gridContainer: {
     justifyContent: "space-around"
@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   },
   typo: {
     fontFamily: "'EB Garamond', sans-serif,serif",
-    color: "#fff"
+    color: "#dcae1d"
   },
   link: {
     textDecoration: "none",
@@ -64,7 +64,7 @@ function ParaHeader(props) {
           <Link to={props.link} className={classes.link}>
             <Button className={classes.linkBtn}>
               <KeyboardBackspace
-                style={{ color: "#fff", marginRight: "0.5rem" }}
+                style={{ color: "#dcae1d", marginRight: "0.5rem" }}
               />
               <Typography className={classes.typo}>Go Back</Typography>
             </Button>

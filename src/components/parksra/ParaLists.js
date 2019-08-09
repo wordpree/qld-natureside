@@ -15,7 +15,9 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyle = makeStyles(theme => ({
   sList: {
     padding: "3.5rem",
-    background: "#FAFAFA"
+    background: "#FAFAFA",
+    maxWidth: 1520,
+    margin: "0 auto"
   },
   middleBar: {
     backgroundColor: "inherit",
@@ -23,19 +25,32 @@ const useStyle = makeStyles(theme => ({
     left: "50%",
     transform: "translateX(-50%)",
     WebkitTransform: "translateX(-50%)",
-    textAlign: "center"
+    textAlign: "center",
+    [theme.breakpoints.up("md")]: {
+      opacity: 0,
+      "&:hover": {
+        opacity: 1
+      }
+    },
+    transition: "all 1s ease-in-out"
   },
   bottomBar: {
-    fontSize: "80%"
+    fontSize: "80%",
+    color: "#00303f"
+  },
+  tileBar: {
+    background: "#dcae1d"
   },
   iconBtn: {
-    color: "#fff"
+    color: "#00303f"
   },
   btn: {
     backgroundColor: "rgba(0,0,0,0.7)",
     padding: "0.5rem 1rem",
-    border: "3px solid #e0e0e0",
-    width: "100%"
+    width: "100%",
+    "&:hover": {
+      background: "#00303f"
+    }
   },
   link: {
     textDecoration: "none",
@@ -44,7 +59,7 @@ const useStyle = makeStyles(theme => ({
   typo: {
     fontFamily: "'EB Garamond', sans-serif,serif",
     textAlign: "center",
-    color: "#fff"
+    color: "#dcae1d"
   }
 }));
 
@@ -83,6 +98,7 @@ export default function ParaParkLists({
           }
         />
         <GridListTileBar
+          className={classes.tileBar}
           classes={{ title: classes.bottomBar }}
           title={photo.name}
           actionIcon={

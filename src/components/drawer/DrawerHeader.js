@@ -8,7 +8,7 @@ const useStyle = makeStyles({
     justifyContent: "space-around",
     padding: "1.75rem 1rem",
     margin: "0 auto",
-    background: "linear-gradient(to right,#8F7E4A,#5079AB)"
+    background: "#7a9d96"
   },
   typo: {
     fontFamily: "'EB Garamond', sans-serif,serif",
