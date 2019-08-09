@@ -9,8 +9,7 @@ import logo from "../../assets/image/logo.png";
 const useStyles = makeStyles({
   header: {
     padding: "1.5rem",
-    background:
-      "linear-gradient(to right, rgba(175,194,174,0.4), rgba(73,162,168,0.7))"
+    background: "#AD9C9C"
   },
   gridContainer: {
     justifyContent: "space-around"
@@ -24,11 +23,7 @@ const useStyles = makeStyles({
   },
   typo: {
     fontFamily: "'EB Garamond', sans-serif,serif",
-    color: "#8A846D"
-  },
-  typoRight: {
-    color: "#787044",
-    fontFamily: "'EB Garamond', sans-serif,serif"
+    color: "#fff"
   },
   link: {
     textDecoration: "none",
@@ -69,9 +64,9 @@ function ParaHeader(props) {
           <Link to={props.link} className={classes.link}>
             <Button className={classes.linkBtn}>
               <KeyboardBackspace
-                style={{ color: "#787044", marginRight: "0.5rem" }}
+                style={{ color: "#fff", marginRight: "0.5rem" }}
               />
-              <Typography className={classes.typoRight}>Go Back</Typography>
+              <Typography className={classes.typo}>Go Back</Typography>
             </Button>
           </Link>
         </Grid>

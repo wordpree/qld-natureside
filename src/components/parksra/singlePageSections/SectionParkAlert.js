@@ -4,29 +4,7 @@ import { AlertOutline } from "mdi-material-ui";
 import { Typography, Card, CardHeader, CardContent } from "@material-ui/core";
 
 const useStyles = makeStyles({
-  section2: { margin: "2.5rem auto" },
-  cardLarge: {
-    width: "100%",
-    height: 250
-  },
-  cardSmall: {
-    width: "32%",
-    height: 120,
-    cursor: "pointer"
-  },
-  cardFity: {
-    width: "100%",
-    height: 350
-  },
-  listFity: {
-    maxHeight: 400,
-    overflow: "auto"
-  },
-  media: {
-    height: "100%",
-    transition: "all 0.4s linear 0.1s",
-    backgroundSize: "cover"
-  },
+  section: { margin: "2.5rem auto", padding: "1.5rem" },
   alert: {
     maxWidth: "93%",
     margin: "0 auto"
@@ -36,7 +14,7 @@ const useStyles = makeStyles({
 export default function SectionParkAlert({ alerts }) {
   const classes = useStyles();
   return (
-    <section className={classes.section4}>
+    <section className={classes.section}>
       <Card className={classes.alert}>
         <CardHeader
           title="Park Alerts"

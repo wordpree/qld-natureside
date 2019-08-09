@@ -13,21 +13,12 @@ import {
 import { MapMarkerOutline } from "mdi-material-ui";
 
 const useStyles = makeStyles({
+  section: { margin: "3rem auto", padding: "1.5rem" },
   reverse: {
     flexDirection: "row-reverse"
   },
   row: {
     flexDirection: "row"
-  },
-  section: { margin: "2.5rem auto" },
-  cardLarge: {
-    width: "100%",
-    height: 250
-  },
-  cardSmall: {
-    width: "32%",
-    height: 120,
-    cursor: "pointer"
   },
   cardFity: {
     width: "100%",

@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 
 const useStyles = makeStyles({
-  section2: { margin: "2.5rem auto" },
+  section1: { margin: "2.5rem auto" },
   cardLarge: {
     width: "100%",
     height: 250
@@ -20,22 +20,10 @@ const useStyles = makeStyles({
     height: 120,
     cursor: "pointer"
   },
-  cardFity: {
-    width: "100%",
-    height: 350
-  },
-  listFity: {
-    maxHeight: 400,
-    overflow: "auto"
-  },
   media: {
     height: "100%",
     transition: "all 0.4s linear 0.1s",
     backgroundSize: "cover"
-  },
-  alert: {
-    maxWidth: "93%",
-    margin: "0 auto"
   }
 });
 

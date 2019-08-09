@@ -7,12 +7,14 @@ const useStyle = makeStyles({
     display: "flex",
     justifyContent: "space-around",
     padding: "1.75rem 1rem",
-    margin: "0 auto"
+    margin: "0 auto",
+    background: "linear-gradient(to right,#8F7E4A,#5079AB)"
   },
   typo: {
     fontFamily: "'EB Garamond', sans-serif,serif",
     textAlign: "center",
-    alignSelf: "center"
+    alignSelf: "center",
+    color: "#fff"
   }
 });
 export default function DrawerHeader({ closeDrawer }) {
@@ -28,7 +30,11 @@ export default function DrawerHeader({ closeDrawer }) {
         variant="h6"
         onClick={() => closeDrawer()}
       >
-        <Button>Home</Button>
+        <Button>
+          <Typography className={classes.typo} variant="h5">
+            Home
+          </Typography>
+        </Button>
       </Typography>
     </header>
   );

@@ -15,7 +15,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyle = makeStyles(theme => ({
   sList: {
     padding: "3.5rem",
-    background: "#E1EDE6"
+    background: "#FAFAFA"
   },
   middleBar: {
     backgroundColor: "inherit",

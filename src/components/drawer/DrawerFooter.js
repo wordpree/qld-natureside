@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyle = makeStyles({
   footer: {
-    backgroundColor: "rgba(255,255,255,0.4)",
+    backgroundColor: "#7A5656",
     padding: "2rem 0 3rem 0",
     textAlign: "center"
   },

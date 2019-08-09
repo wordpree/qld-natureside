@@ -11,7 +11,8 @@ import { SignDirection } from "mdi-material-ui";
 
 const usetStyles = makeStyles(theme => ({
   root: {
-    margin: "0 auto"
+    margin: "2rem auto",
+    padding: "1.5rem"
   },
   list: {
     [theme.breakpoints.up("md")]: {
