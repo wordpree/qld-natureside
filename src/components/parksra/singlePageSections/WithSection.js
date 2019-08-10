@@ -49,7 +49,7 @@ function WithSection(lists, image, title, reverse) {
             {lists.map((f, index) => (
               <ListItem key={index} button>
                 <ListItemIcon>
-                  <MapMarkerOutline />
+                  <MapMarkerOutline style={{ color: "#dcae1d" }} />
                 </ListItemIcon>
                 <ListItemText primary={f} />
               </ListItem>

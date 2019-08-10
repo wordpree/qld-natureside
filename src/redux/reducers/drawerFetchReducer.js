@@ -3,7 +3,8 @@ const initialState = {
   isFetching: false,
   failure: null,
   featuredImage: null,
-  data: null
+  data: null,
+  parks: null
 };
 const drawerFetchReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -29,10 +30,15 @@ const drawerFetchReducer = (state = initialState, action) => {
             createdAt: new Date(item.featuredImage.sys.createdAt).toString()
           };
         }),
-        image: action.payload.data.map(item => {
+        parks: action.payload.data.map(item => {
           return {
             name: item.fullName,
-            image: item.images[0].fields.file.url
+            image: item.images[0].fields.file.url,
+            type: item.type,
+            camping: item.camping,
+            fishing: item.fishing,
+            swimming: item.swimming,
+            boating: item.boating
           };
         }),
         isFetching: false,

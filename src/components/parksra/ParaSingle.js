@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ParaSingleProcess from "./ParaSingleProcess";
-import ParaSingleLoad from "./ParaSingleLoad";
+import Loading from "../Loading";
 
 export default function ParaSingle(props) {
   const { success, contentfulDisaptch, data, slug } = props;
@@ -13,12 +13,11 @@ export default function ParaSingle(props) {
   if (success === true) {
     const park = data.find(item => item.fullName === slug);
     if (park) {
-      console.log(park.type);
       return <ParaSingleProcess park={park} />;
     } else {
       return <div>hello from no park found page</div>;
     }
   } else {
-    return <ParaSingleLoad />;
+    return <Loading />;
   }
 }

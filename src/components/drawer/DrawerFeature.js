@@ -9,6 +9,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { shouldFetchData } from "../../redux/action";
+import Loading from "../Loading";
 
 const useStyle = makeStyles(theme => ({
   sBottom: {
@@ -17,7 +18,8 @@ const useStyle = makeStyles(theme => ({
   typo: {
     fontFamily: "'EB Garamond', sans-serif,serif",
     textAlign: "center",
-    padding: "1em 0"
+    padding: "1em 0",
+    color: "#dcae1d"
   },
   root: {
     display: "flex",
@@ -55,28 +57,30 @@ export default function DrawerFeature({ dispatch, featuredImage, success }) {
     }
     fetchContentfulData();
   });
-  const listCont = success
-    ? featuredImage.map(item => (
-        <GridListTile key={item.url}>
-          <img src={item.url} alt="nature images" />
-          <GridListTileBar
-            classes={{ title: classes.title, subtitle: classes.title }}
-            className={classes.tileBar}
-            title={item.name}
-            subtitle={
-              <span>Created At:{item.createdAt.replace(replaceStr, "")}</span>
-            }
-            actionIcon={
-              <IconButton>
-                <Tooltip title="Learn More">
-                  <DotsVertical style={{ color: "#00303f" }} />
-                </Tooltip>
-              </IconButton>
-            }
-          />
-        </GridListTile>
-      ))
-    : "loading";
+  const listCont = success ? (
+    featuredImage.map(item => (
+      <GridListTile key={item.url}>
+        <img src={item.url} alt="nature images" />
+        <GridListTileBar
+          classes={{ title: classes.title, subtitle: classes.title }}
+          className={classes.tileBar}
+          title={item.name}
+          subtitle={
+            <span>Created At:{item.createdAt.replace(replaceStr, "")}</span>
+          }
+          actionIcon={
+            <IconButton>
+              <Tooltip title="Learn More">
+                <DotsVertical style={{ color: "#00303f" }} />
+              </Tooltip>
+            </IconButton>
+          }
+        />
+      </GridListTile>
+    ))
+  ) : (
+    <Loading />
+  );
 
   return (
     <section className={classes.sBottom}>

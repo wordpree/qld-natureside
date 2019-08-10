@@ -18,7 +18,7 @@ export default function SectionParkAlert({ alerts }) {
       <Card className={classes.alert}>
         <CardHeader
           title="Park Alerts"
-          avatar={<AlertOutline style={{ color: "#f57c00" }} />}
+          avatar={<AlertOutline style={{ color: "#dcae1d" }} />}
         />
         <CardContent>
           <Typography>{alerts}</Typography>

@@ -1,9 +1,9 @@
-import ParaLists from "../components/parksra/ParaLists";
+import FormCtrl from "../components/parksra/FormCtrl";
 import { shouldFetchData } from "../redux/action";
 import { connect } from "react-redux";
 
 const mapStateToProps = state => ({
-  images: state.fetch.image,
+  parks: state.fetch.parks,
   success: state.fetch.success
 });
 const mapDispatchToProps = dispatch => ({
@@ -12,4 +12,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ParaLists);
+)(FormCtrl);

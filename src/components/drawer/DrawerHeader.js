@@ -14,14 +14,14 @@ const useStyle = makeStyles({
     fontFamily: "'EB Garamond', sans-serif,serif",
     textAlign: "center",
     alignSelf: "center",
-    color: "#fff"
+    color: "#dcae1d"
   }
 });
 export default function DrawerHeader({ closeDrawer }) {
   const classes = useStyle();
   return (
     <header className={classes.header}>
-      <Typography className={classes.typo} component="h1" variant="h3">
+      <Typography className={classes.typo} component="h1" variant="h4">
         Queensland Nature Side
       </Typography>
       <Typography
@@ -31,7 +31,7 @@ export default function DrawerHeader({ closeDrawer }) {
         onClick={() => closeDrawer()}
       >
         <Button>
-          <Typography className={classes.typo} variant="h5">
+          <Typography className={classes.typo} variant="h6">
             Home
           </Typography>
         </Button>

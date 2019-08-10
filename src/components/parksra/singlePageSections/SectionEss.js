@@ -41,7 +41,7 @@ export default function SectionEss({ essentials }) {
         {essentials.map((f, index) => (
           <ListItem className={classes.list} key={index} button>
             <ListItemIcon>
-              <SignDirection />
+              <SignDirection style={{ color: "#dcae1d" }} />
             </ListItemIcon>
             <ListItemText primary={f} className={classes.typo} />
           </ListItem>

@@ -22,12 +22,11 @@ function ParaParkSingle({ park }) {
     facilities,
     activities,
     location,
-    type,
     essentials,
     openingHours,
     alerts
   } = park;
-  const entryLists = [fullName, type, openingHours, location, description];
+  const entryLists = [fullName, openingHours, location, description];
   const [fityImage, actImage, ...entryImage] = images;
   const propsFacility = {
     lists: facilities,
