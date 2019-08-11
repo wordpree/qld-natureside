@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     backgroundRepeat: "no-repeat"
   }
 });
-export default function Hero() {
+export default function Hero({ title, subtitle, link }) {
   const classes = useStyles();
   const { figure } = bgImg;
   const [index, setIndex] = useState(0);
@@ -48,7 +48,7 @@ export default function Hero() {
   return (
     <div className={classes.hero}>
       {figureLists}
-      <Banner />
+      <Banner title={title} subtitle={subtitle} link={link} />
     </div>
   );
 }

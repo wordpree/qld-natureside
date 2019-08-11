@@ -39,19 +39,19 @@ const useStyles = makeStyles(theme => ({
     display: "block"
   }
 }));
-export default function Banner() {
+export default function Banner({ title, subtitle, link }) {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
       <CardContent className={classes.content}>
         <Typography className={classes.typo} variant="h4" gutterBottom>
-          Welcom to QLD parks and recreation area
+          {title}
         </Typography>
       </CardContent>
       <CardActions className={classes.actions}>
-        <Link to="/parks-recreationarea" className={classes.link}>
+        <Link to={link} className={classes.link}>
           <Button className={classes.button}>
-            <span className={classes.typo}>Learn More</span>
+            <span className={classes.typo}>{subtitle}</span>
             <UnFoldMoreVetical style={{ color: "#fff" }} />
           </Button>
         </Link>
