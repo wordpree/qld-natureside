@@ -32,6 +32,10 @@ const useStyles = makeStyles({
     height: "100%",
     transition: "all 0.4s linear 0.1s",
     backgroundSize: "cover"
+  },
+  typo: {
+    fontFamily: "'EB Garamond', sans-serif,serif",
+    textAlign: "center"
   }
 });
 
@@ -51,14 +55,14 @@ function WithSection(lists, image, title, reverse) {
                 <ListItemIcon>
                   <MapMarkerOutline style={{ color: "#dcae1d" }} />
                 </ListItemIcon>
-                <ListItemText primary={f} />
+                <ListItemText primary={f} classes={{ primary: classes.typo }} />
               </ListItem>
             ))}
           </List>
         </Grid>
         <Grid item xs={12} md={6}>
           <Card className={classes.cardFity}>
-            <CardHeader title={title} />
+            <CardHeader title={title} classes={{ title: classes.typo }} />
             <CardMedia
               image={image.fields.file.url}
               className={classes.media}

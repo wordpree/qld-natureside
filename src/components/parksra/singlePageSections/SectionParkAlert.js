@@ -8,6 +8,10 @@ const useStyles = makeStyles({
   alert: {
     maxWidth: "93%",
     margin: "0 auto"
+  },
+  typo: {
+    fontFamily: "'EB Garamond', sans-serif,serif",
+    textAlign: "center"
   }
 });
 
@@ -21,7 +25,7 @@ export default function SectionParkAlert({ alerts }) {
           avatar={<AlertOutline style={{ color: "#dcae1d" }} />}
         />
         <CardContent>
-          <Typography>{alerts}</Typography>
+          <Typography className={classes.typo}>{alerts}</Typography>
         </CardContent>
       </Card>
     </section>

@@ -6,15 +6,17 @@ import { Bike, Hiking, RunFast, PineTree, Ladybug } from "mdi-material-ui/";
 import { makeStyles } from "@material-ui/core/styles";
 import { avatar } from "../../drawerData";
 
-const useStyle = makeStyles({
+const useStyle = makeStyles(theme => ({
   sMiddle: {
     textAlign: "center",
     margin: "2.5rem auto",
-    width: "80%",
-    backgroundColor: "rgba(255,255,255,0.4)"
+    backgroundColor: "rgba(255,255,255,0.4)",
+    [theme.breakpoints.up("md")]: {
+      width: "80%"
+    }
   },
-  content: {
-    maxWidth: "75%",
+  entry: {
+    maxWidth: "90%",
     textAlign: "center",
     margin: "2.5rem auto",
     padding: "2rem 0"
@@ -25,13 +27,19 @@ const useStyle = makeStyles({
     margin: "10px auto",
     transition: "all 0.5s"
   },
-  typo: {
-    fontFamily: "'EB Garamond', sans-serif,serif"
+  title: {
+    fontFamily: "'EB Garamond', sans-serif,serif",
+    color: "#dcae1d",
+    textAlign: "center"
+  },
+  content: {
+    fontFamily: "'EB Garamond', sans-serif,serif",
+    textAlign: "center"
   },
   icon: {
     padding: "1rem"
   }
-});
+}));
 
 export default function DrawerInfo() {
   const classes = useStyle();
@@ -57,17 +65,12 @@ export default function DrawerInfo() {
   }, [index]);
   return (
     <section className={classes.sMiddle}>
-      <div className={classes.content}>
+      <div className={classes.entry}>
         <Avatar src={img[index]} className={classes.avatar} />
-        <Typography
-          className={classes.typo}
-          gutterBottom
-          component="h4"
-          variant="h4"
-        >
+        <Typography className={classes.title} gutterBottom variant="h5">
           {title}
         </Typography>
-        <Typography className={classes.typo} component="p" variant="h5">
+        <Typography className={classes.content} component="p" variant="h6">
           {content}
         </Typography>
         <div className={classes.icon}>{iconLists}</div>

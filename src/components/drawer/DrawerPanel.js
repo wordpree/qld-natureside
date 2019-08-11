@@ -20,7 +20,6 @@ export default function DrawerPanel(props) {
   return (
     <Container
       style={{
-        backgroundColor: "#cae4db",
         width: `${width}px`,
         padding: "0.25rem"
       }}

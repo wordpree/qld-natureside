@@ -84,12 +84,7 @@ export default function DrawerFeature({ dispatch, featuredImage, success }) {
 
   return (
     <section className={classes.sBottom}>
-      <Typography
-        className={classes.typo}
-        gutterBottom
-        component="h3"
-        variant="h4"
-      >
+      <Typography className={classes.typo} gutterBottom variant="h5">
         Featured Photos from Parks and Recreation Area
       </Typography>
       <div className={classes.root}>

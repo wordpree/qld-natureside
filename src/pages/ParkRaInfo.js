@@ -9,7 +9,7 @@ export default function ParkRaInfo({ match }) {
   return (
     <>
       <CssBaseline />
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" style={{ padding: 0 }}>
         <ParaHeader link="/parks-recreationarea" />
         <ParaSingleCon slug={match.params.slug} />
         <DrawerFooter />

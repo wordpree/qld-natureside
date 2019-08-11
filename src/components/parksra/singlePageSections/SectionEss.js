@@ -34,7 +34,7 @@ export default function SectionEss({ essentials }) {
   const classes = usetStyles();
   return (
     <section className={classes.root}>
-      <Typography className={classes.typo} variant="h4" gutterBottom>
+      <Typography className={classes.typo} variant="h5" gutterBottom>
         Things you should to know before your trip
       </Typography>
       <List className={classes.lists}>
@@ -43,7 +43,7 @@ export default function SectionEss({ essentials }) {
             <ListItemIcon>
               <SignDirection style={{ color: "#dcae1d" }} />
             </ListItemIcon>
-            <ListItemText primary={f} className={classes.typo} />
+            <ListItemText primary={f} classes={{ primary: classes.typo }} />
           </ListItem>
         ))}
       </List>

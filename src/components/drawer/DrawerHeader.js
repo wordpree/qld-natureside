@@ -21,7 +21,7 @@ export default function DrawerHeader({ closeDrawer }) {
   const classes = useStyle();
   return (
     <header className={classes.header}>
-      <Typography className={classes.typo} component="h1" variant="h4">
+      <Typography className={classes.typo} variant="h5">
         Queensland Nature Side
       </Typography>
       <Typography
@@ -31,7 +31,7 @@ export default function DrawerHeader({ closeDrawer }) {
         onClick={() => closeDrawer()}
       >
         <Button>
-          <Typography className={classes.typo} variant="h6">
+          <Typography className={classes.typo} variant="subtitle1">
             Home
           </Typography>
         </Button>

@@ -24,6 +24,10 @@ const useStyles = makeStyles({
     height: "100%",
     transition: "all 0.4s linear 0.1s",
     backgroundSize: "cover"
+  },
+  typo: {
+    fontFamily: "'EB Garamond', sans-serif,serif",
+    textAlign: "center"
   }
 });
 
@@ -69,7 +73,10 @@ export default function SectionEntry({ lists, image }) {
           <List>
             {lists.map((list, index) => (
               <ListItem alignItems="flex-start" key={index}>
-                <ListItemText primary={list} />
+                <ListItemText
+                  primary={list}
+                  classes={{ primary: classes.typo }}
+                />
               </ListItem>
             ))}
           </List>

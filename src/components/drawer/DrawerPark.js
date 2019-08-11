@@ -41,12 +41,7 @@ export default function DrawerPark({ title, description, urls }) {
             }
           />
           <CardContent>
-            <Typography
-              className={classes.typo}
-              component="h2"
-              gutterBottom
-              variant="h5"
-            >
+            <Typography className={classes.typo} gutterBottom variant="h6">
               {title}
             </Typography>
             <Typography className={classes.typo} component="p">
