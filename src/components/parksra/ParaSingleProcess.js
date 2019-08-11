@@ -32,13 +32,13 @@ function ParaParkSingle({ park }) {
     lists: facilities,
     image: fityImage,
     title: "You can access this site's facilities",
-    reverse: false
+    reverse: true
   };
   const propsActivity = {
     lists: activities,
     image: actImage,
     title: "You can take part in all these activities",
-    reverse: true
+    reverse: false
   };
 
   return (

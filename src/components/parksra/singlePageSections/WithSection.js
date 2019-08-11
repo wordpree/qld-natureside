@@ -12,10 +12,12 @@ import {
 } from "@material-ui/core";
 import { MapMarkerOutline } from "mdi-material-ui";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   section: { margin: "3rem auto", padding: "1.5rem" },
   reverse: {
-    flexDirection: "row-reverse"
+    [theme.breakpoints.up("md")]: {
+      flexDirection: "row-reverse"
+    }
   },
   row: {
     flexDirection: "row"
@@ -37,7 +39,7 @@ const useStyles = makeStyles({
     fontFamily: "'EB Garamond', sans-serif,serif",
     textAlign: "center"
   }
-});
+}));
 
 function WithSection(lists, image, title, reverse) {
   const classes = useStyles();
@@ -49,6 +51,15 @@ function WithSection(lists, image, title, reverse) {
         className={reverse ? classes.reverse : classes.row}
       >
         <Grid item xs={12} md={6}>
+          <Card className={classes.cardFity}>
+            <CardHeader title={title} classes={{ title: classes.typo }} />
+            <CardMedia
+              image={image.fields.file.url}
+              className={classes.media}
+            />
+          </Card>
+        </Grid>
+        <Grid item xs={12} md={6}>
           <List className={classes.listFity}>
             {lists.map((f, index) => (
               <ListItem key={index} button>
@@ -59,15 +70,6 @@ function WithSection(lists, image, title, reverse) {
               </ListItem>
             ))}
           </List>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Card className={classes.cardFity}>
-            <CardHeader title={title} classes={{ title: classes.typo }} />
-            <CardMedia
-              image={image.fields.file.url}
-              className={classes.media}
-            />
-          </Card>
         </Grid>
       </Grid>
     </section>
