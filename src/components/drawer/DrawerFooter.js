@@ -9,7 +9,6 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyle = makeStyles({
   footer: {
     backgroundColor: "#00303f",
-    padding: "2rem 0 3rem 0",
     textAlign: "center"
   },
   list: {
@@ -21,13 +20,15 @@ const useStyle = makeStyles({
   },
   social: {
     maxWidth: "20rem",
-    margin: "0 auto",
-    padding: "1.25rem 0"
+    margin: "0 auto"
   },
   typo: {
     fontFamily: "'EB Garamond', sans-serif,serif",
     textAlign: "center",
     color: "#dcae1d"
+  },
+  typoCont: {
+    padding: "0.5rem 0"
   },
   hr: {
     height: "1px",
@@ -62,7 +63,7 @@ export default function DrawerFooter() {
         rel="noopener noreferrer"
         href={href[index]}
       >
-        <IconButton className={classes.iconBtn}>
+        <IconButton className={classes.iconBtn} size="small">
           <Icon />
         </IconButton>
       </a>
@@ -75,16 +76,13 @@ export default function DrawerFooter() {
         <List className={classes.list}>{listItems}</List>
         <hr className={classes.hr} />
       </div>
-      <Typogrphy
-        gutterBottom
-        variant="subtitle2"
-        component="span"
-        className={classes.typo}
-      >
-        &copy;Jun
-        <br />
-        photos for attention purpose
-      </Typogrphy>
+      <div className={classes.typoCont}>
+        <Typogrphy gutterBottom variant="caption" className={classes.typo}>
+          &copy;Jun
+          <br />
+          photos for attention purpose
+        </Typogrphy>
+      </div>
     </footer>
   );
 }

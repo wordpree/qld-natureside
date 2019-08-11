@@ -5,9 +5,12 @@ import ParkRaInfo from "./pages/ParkRaInfo";
 import Error from "./pages/Error";
 import { Route, Switch } from "react-router-dom";
 import share from "./assets/image/share.jpg";
+import { CssBaseline } from "@material-ui/core";
+
 function App() {
   return (
     <>
+      <CssBaseline />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/parks-recreationarea" component={ParkRaPic} />

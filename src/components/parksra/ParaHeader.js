@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/image/logo.png";
 const useStyles = makeStyles({
   header: {
-    padding: "1.5rem",
+    padding: "1rem",
     background: "#7a9d96"
   },
   gridContainer: {
@@ -16,24 +16,26 @@ const useStyles = makeStyles({
   },
   logo: {
     display: "flex",
-    justifyContent: "space-around"
+    justifyContent: "flex-start"
   },
   logoText: {
-    padding: "2rem"
+    padding: "0.5rem 0 0 1rem"
   },
   typo: {
     fontFamily: "'EB Garamond', sans-serif,serif",
     color: "#dcae1d"
   },
-  link: {
+  logoLink: {
     textDecoration: "none",
     color: "inherit"
   },
-  linkBtn: {
+  link: {
+    textDecoration: "none",
+    color: "inherit",
     position: "absolute",
     top: "50%",
-    transform: "translateY(-50%)",
-    minWidth: 145
+    right: "3.5%",
+    transform: "translateY(-50%)"
   }
 });
 
@@ -41,9 +43,9 @@ function ParaHeader(props) {
   const classes = useStyles();
   return (
     <header className={classes.header}>
-      <Grid container className={classes.gridContainer} spacing={2}>
-        <Grid item>
-          <Link to="/" className={classes.link}>
+      <Grid container className={classes.gridContainer} spacing={3}>
+        <Grid item xs={12} md={6}>
+          <Link to="/" className={classes.logoLink}>
             <div className={classes.logo}>
               <img src={logo} alt="logo" style={{ maxHeight: "95px" }} />
               <div className={classes.logoText}>
@@ -60,7 +62,7 @@ function ParaHeader(props) {
             </div>
           </Link>
         </Grid>
-        <Grid item style={{ position: "relative" }}>
+        <Grid item style={{ position: "relative" }} xs={12} md={6}>
           <Link to={props.link} className={classes.link}>
             <Button className={classes.linkBtn}>
               <KeyboardBackspace

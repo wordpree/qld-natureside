@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Container from "@material-ui/core/Container";
+import { CssBaseline } from "@material-ui/core";
 import DrawerHeader from "./DrawerHeader";
 import DrawerFeatureCon from "../../container/DrawerFeatureCon";
 import DrawerParkLists from "./DrawerParkLists";
@@ -18,18 +19,21 @@ export default function DrawerPanel(props) {
     };
   }, [width]);
   return (
-    <Container
-      style={{
-        width: `${width}px`,
-        padding: "0.25rem"
-      }}
-      maxWidth="xl"
-    >
-      <DrawerHeader {...props} />
-      <DrawerParkLists />
-      <DrawerInfo />
-      <DrawerFeatureCon />
-      <DrawerFooter />
-    </Container>
+    <>
+      <CssBaseline />
+      <Container
+        style={{
+          width: `${width}px`,
+          padding: "0.25rem"
+        }}
+        maxWidth="xl"
+      >
+        <DrawerHeader {...props} />
+        <DrawerParkLists />
+        <DrawerInfo />
+        <DrawerFeatureCon />
+        <DrawerFooter />
+      </Container>
+    </>
   );
 }

@@ -152,9 +152,7 @@ export default function FormCtrl({ handleFetchData, parks, success, url }) {
           </FormControl>
         </div>
       </section>
-      <section>
-        {success ? <ParaLists parks={filterParks} url={url} /> : <Loading />}
-      </section>
+      {success ? <ParaLists parks={filterParks} url={url} /> : <Loading />}
     </main>
   );
 }

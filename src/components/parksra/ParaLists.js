@@ -14,7 +14,9 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyle = makeStyles(theme => ({
   section: {
-    padding: "3.5rem",
+    [theme.breakpoints.up("md")]: {
+      padding: "3.5rem"
+    },
     background: "#FAFAFA",
     maxWidth: 1520,
     margin: "0 auto"
