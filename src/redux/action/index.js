@@ -23,7 +23,7 @@ const fetchDataFailure = err => ({
 const fetchData = () => dispatch => {
   dispatch(fetchDataBegin());
   return contentfulClient
-    .getEntries()
+    .getEntries({ content_type: "parks" })
     .then(response =>
       dispatch(fetchDataSuccess(response.items.map(item => item.fields)))
     )
