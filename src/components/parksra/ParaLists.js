@@ -23,6 +23,10 @@ const useStyle = makeStyles((theme) => ({
     margin: "0 auto",
   },
   middleBar: {
+    display: "none",
+    [theme.breakpoints.up("md")]: {
+      display: "block",
+    },
     position: "absolute",
     padding: "6px 2px",
     backgroundColor: "#dcae1d",
@@ -31,6 +35,16 @@ const useStyle = makeStyles((theme) => ({
     top: 0,
     left: 0,
     zIndex: 99,
+  },
+  btnMobile: {
+    display: "block",
+    position: "absolute",
+    top: "35%",
+    left: "50%",
+    transform: "translate(-50%)",
+    [theme.breakpoints.up("md")]: {
+      display: "none",
+    },
   },
   name: {
     color: "#fff",
@@ -50,7 +64,6 @@ const useStyle = makeStyles((theme) => ({
     backgroundColor: "#fff",
     textAlign: "center",
     borderColor: "#fff",
-    margin: "0 atuo",
     "&:hover": {
       background: "#fff",
       boxShadow: "0 0 12px rgba(0,0,0,0.35)",
@@ -76,7 +89,7 @@ export default function ParaParkLists({ parks, url }) {
   const variants = {
     hidden: {
       opacity: 0,
-      y: -100,
+      y: -120,
     },
     hover: {
       opacity: 1,
@@ -86,6 +99,15 @@ export default function ParaParkLists({ parks, url }) {
   const motionRef = React.forwardRef((props, ref) => (
     <motion.div ref={ref} {...props} whileHover="hover" initial="hidden" />
   ));
+  const button = (park) => (
+    <Link to={url + "/" + park.name} className={classes.link}>
+      <Button variant="outlined" className={classes.btn} size="small">
+        <Typography className={classes.typo} variant="caption">
+          Learn More
+        </Typography>
+      </Button>
+    </Link>
+  );
   const gridLists = parks.map((park, key) => (
     <GridListTile key={key} component={motionRef}>
       <img src={park.image} alt={park.name} />
@@ -93,14 +115,9 @@ export default function ParaParkLists({ parks, url }) {
         <Typography variant="body2" className={classes.name}>
           {park.name}
         </Typography>
-        <Link to={url + "/" + park.name} className={classes.link}>
-          <Button variant="outlined" className={classes.btn}>
-            <Typography className={classes.typo} variant="subtitle2">
-              Learn More
-            </Typography>
-          </Button>
-        </Link>
+        {button(park)}
       </motion.div>
+      <div className={classes.btnMobile}>{button(park)}</div>
       <GridListTileBar
         classes={{ title: classes.bottomBar }}
         title={park.name}
