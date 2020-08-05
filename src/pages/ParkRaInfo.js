@@ -6,7 +6,7 @@ import ParaSingleCon from "../container/ParaSingleCon";
 export default function ParkRaInfo({ match }) {
   return (
     <>
-      <Container maxWidth="xl" style={{ padding: 0 }}>
+      <Container>
         <ParaHeader link="/parks-recreationarea" />
         <ParaSingleCon slug={match.params.slug} />
       </Container>

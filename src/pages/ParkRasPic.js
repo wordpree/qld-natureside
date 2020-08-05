@@ -6,8 +6,8 @@ import Container from "@material-ui/core/Container";
 export default function ParkRaPic({ match }) {
   return (
     <>
-      <Container maxWidth="xl" style={{ padding: 0 }}>
-        <ParaHeader link="/" />
+      <ParaHeader link="/" />
+      <Container>
         <FormCtrlCon url={match.url} />
       </Container>
     </>
