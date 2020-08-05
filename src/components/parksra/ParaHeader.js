@@ -5,29 +5,30 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import { KeyboardBackspace } from "mdi-material-ui";
 import { Link } from "react-router-dom";
-import logo from "../../assets/image/logo.png";
+import logo from "../../assets/image/logo.svg";
+
 const useStyles = makeStyles({
   header: {
     padding: "1rem",
-    background: "#7a9d96"
+    background: "#7a9d96",
   },
   gridContainer: {
-    justifyContent: "space-around"
+    justifyContent: "space-around",
   },
   logo: {
     display: "flex",
-    justifyContent: "flex-start"
+    justifyContent: "flex-start",
   },
   logoText: {
-    padding: "0.5rem 0 0 1rem"
+    padding: "0.5rem 0 0 1rem",
   },
   typo: {
     fontFamily: "'EB Garamond', sans-serif,serif",
-    color: "#dcae1d"
+    color: "#dcae1d",
   },
   logoLink: {
     textDecoration: "none",
-    color: "inherit"
+    color: "inherit",
   },
   link: {
     textDecoration: "none",
@@ -35,8 +36,8 @@ const useStyles = makeStyles({
     position: "absolute",
     top: "50%",
     right: "3.5%",
-    transform: "translateY(-50%)"
-  }
+    transform: "translateY(-50%)",
+  },
 });
 
 function ParaHeader(props) {
