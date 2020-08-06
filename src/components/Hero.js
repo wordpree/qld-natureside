@@ -11,14 +11,11 @@ const useStyles = makeStyles({
     height: "100%",
   },
   figure: {
-    margin: 0,
     position: "absolute",
     top: 0,
     left: 0,
     height: "100%",
     width: "100%",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
   },
   dropback: {
     position: "absolute",
@@ -34,17 +31,17 @@ export default function Hero() {
 
   return (
     <div className={classes.hero}>
-      <motion.figure
+      <motion.div
         initial={{ scale: 1, rotate: 0 }}
         animate={{ scale: [1, 1.05, 1.1, 1.05, 1], rotate: [0.2, 0] }}
         transition={{ type: "spring", duration: 3 }}
         className={classes.figure}
         style={{
-          background: `url(${bg})`,
+          background: `center/ cover no-repeat url(${bg})`,
         }}
       >
         <div className={classes.dropback} />
-      </motion.figure>
+      </motion.div>
       <Banner {...banner} />
     </div>
   );
