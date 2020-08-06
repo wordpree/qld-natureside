@@ -4,14 +4,18 @@ import SectionActivity from "./singlePageSections/SectionActivity";
 import SectionFacility from "./singlePageSections/SectionFacility";
 import SectionParkAlert from "./singlePageSections/SectionParkAlert";
 import SectionEss from "./singlePageSections/SectionEss";
-import { Divider } from "@material-ui/core";
+import { Divider, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 
 const useStyes = makeStyles({
   divider: {
     color: "#787044",
-    margin: "1rem 0"
-  }
+    margin: "1rem 0",
+  },
+  entry: {
+    margin: "2.5rem auto",
+    padding: "2rem 0",
+  },
 });
 function ParaParkSingle({ park }) {
   const classes = useStyes();
@@ -24,7 +28,7 @@ function ParaParkSingle({ park }) {
     location,
     essentials,
     openingHours,
-    alerts
+    alerts,
   } = park;
   const entryLists = [fullName, openingHours, location, description];
   const [fityImage, actImage, ...entryImage] = images;
@@ -32,17 +36,18 @@ function ParaParkSingle({ park }) {
     lists: facilities,
     image: fityImage,
     title: "You can access this site's facilities",
-    reverse: true
+    reverse: true,
   };
   const propsActivity = {
     lists: activities,
     image: actImage,
     title: "You can take part in all these activities",
-    reverse: false
+    reverse: false,
   };
 
   return (
-    <>
+    <div className={classes.entry}>
+      <Typography variant="h4">{fullName}</Typography>
       <SectionEntry lists={entryLists} image={entryImage} />
       <Divider className={classes.divider} />
       <SectionFacility {...propsFacility} />
@@ -52,7 +57,7 @@ function ParaParkSingle({ park }) {
       <SectionEss essentials={essentials} />
       <Divider className={classes.divider} />
       <SectionParkAlert alerts={alerts} />
-    </>
+    </div>
   );
 }
 

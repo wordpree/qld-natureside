@@ -47,9 +47,7 @@ const useStyles = makeStyles((theme) => ({
   subtitle: {
     color: "#fff",
     textTransform: "uppercase",
-    fontFamily: "Josefin Slab,serif",
-    fontStyle: "italic",
-    fontWeight: 600,
+    fontWeight: 500,
     [theme.breakpoints.down(768)]: {
       fontSize: "1.15rem",
     },
@@ -65,7 +63,6 @@ const useStyles = makeStyles((theme) => ({
     border: "2px solid #fff",
     minWidth: 138,
     borderRadius: 5,
-    fontFamily: "Josefin Slab,serif",
     fontWeight: 600,
   },
 }));

@@ -7,23 +7,27 @@ import {
   FormGroup,
   FormControlLabel,
   Checkbox,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ParaLists from "./ParaLists";
 import Loading from "../Loading";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
+  entry: {
+    margin: "5rem auto 2rem",
+  },
   section: {
-    padding: "3rem",
+    padding: "1rem",
     background: "#FAFAFA",
     maxWidth: 1520,
-    margin: "0 auto"
+    margin: "1.5rem auto 0.75rem",
   },
   typo: {
     fontFamily: "'EB Garamond', sans-serif,serif",
     textAlign: "center",
-    color: "#dcae1d"
+    color: "#dcae1d",
+    fontWeight: 500,
   },
   options: {
     display: "flex",
@@ -34,27 +38,27 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     padding: "0.75rem 1.5rem",
     [theme.breakpoints.up("md")]: {
-      flexDirection: "row"
-    }
+      flexDirection: "row",
+    },
   },
   checked: {
-    color: "#dcae1d !important"
+    color: "#dcae1d !important",
   },
   fmCtrl: {
     minWidth: 140,
     marginBottom: "1.5rem",
     [theme.breakpoints.up("md")]: {
-      marginBottom: "auto"
-    }
+      marginBottom: "auto",
+    },
   },
   fmgrp: {
-    flexDirection: "row"
+    flexDirection: "row",
   },
   item: {
     "&:hover": {
-      background: "#dcae1d"
-    }
-  }
+      background: "#dcae1d",
+    },
+  },
 }));
 
 export default function FormCtrl({ handleFetchData, parks, success, url }) {
@@ -65,12 +69,12 @@ export default function FormCtrl({ handleFetchData, parks, success, url }) {
     camping: false,
     fishing: false,
     swimming: false,
-    boating: false
+    boating: false,
   });
-  const hanldeCheckBox = name => event => {
+  const hanldeCheckBox = (name) => (event) => {
     setCheck({
       ...check,
-      [name]: event.target.checked
+      [name]: event.target.checked,
     });
   };
   useEffect(() => {
@@ -81,24 +85,24 @@ export default function FormCtrl({ handleFetchData, parks, success, url }) {
   });
   if (success) {
     filterParks = parks
-      .filter(park => park.type.includes(type) || type === "all")
-      .filter(park => {
+      .filter((park) => park.type.includes(type) || type === "all")
+      .filter((park) => {
         return check.camping ? park.camping === true : true;
       })
-      .filter(park => {
+      .filter((park) => {
         return check.fishing ? park.fishing === true : true;
       })
-      .filter(park => {
+      .filter((park) => {
         return check.swimming ? park.swimming === true : true;
       })
-      .filter(park => {
+      .filter((park) => {
         return check.boating ? park.boating === true : true;
       });
   }
   return (
-    <main>
+    <main className={classes.entry}>
       <section className={classes.section}>
-        <Typography className={classes.typo} variant="h5" gutterBottom>
+        <Typography className={classes.typo} variant="h4" gutterBottom>
           Search Parks or Recreation Areas
         </Typography>
         <div className={classes.options}>
@@ -106,12 +110,12 @@ export default function FormCtrl({ handleFetchData, parks, success, url }) {
             <InputLabel htmlFor="park-type">Park Type</InputLabel>
             <Select
               value={type}
-              onChange={e => {
+              onChange={(e) => {
                 setType(e.target.value);
               }}
               inputProps={{
                 name: "type",
-                id: "park-type"
+                id: "park-type",
               }}
             >
               <MenuItem value="all" className={classes.item}>
@@ -137,7 +141,7 @@ export default function FormCtrl({ handleFetchData, parks, success, url }) {
                     control={
                       <Checkbox
                         classes={{
-                          checked: classes.checked
+                          checked: classes.checked,
                         }}
                         checked={check.item}
                         onChange={hanldeCheckBox(item)}
