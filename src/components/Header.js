@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import logo from "../assets/image/logo.svg";
 import { Button } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     justifyContent: "space-between",
@@ -15,8 +15,12 @@ const useStyles = makeStyles({
     padding: "2.5rem 10%",
   },
   logo: {
-    minWidth: "4rem",
-    minHeight: "4rem",
+    minWidth: "2.5rem",
+    minHeight: "2.5rem",
+    [theme.breakpoints.up(768)]: {
+      minWidth: "3rem",
+      minHeight: "3rem",
+    },
     backgroundImage: `url(${logo})`,
     backgroundSize: "cover",
   },
@@ -26,11 +30,14 @@ const useStyles = makeStyles({
   },
   button: {
     color: "#fff",
-    border: "2px solid #fff",
+    border: "1px solid #fff",
     borderRadius: 15,
-    minWidth: 128,
+    [theme.breakpoints.up(768)]: {
+      minWidth: 128,
+      borderWidth: 2,
+    },
   },
-});
+}));
 
 export default function Header() {
   const classes = useStyles();

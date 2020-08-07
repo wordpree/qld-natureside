@@ -56,6 +56,9 @@ const useStyle = makeStyles((theme) => ({
     color: "#dcae1d",
     fontWeight: 600,
     textAlign: "center",
+    "&>a": {
+      color: "inherit",
+    },
   },
   iconBtn: {
     color: "#00303f",
@@ -120,7 +123,7 @@ export default function ParaParkLists({ parks, url }) {
       <div className={classes.btnMobile}>{button(park)}</div>
       <GridListTileBar
         classes={{ title: classes.bottomBar }}
-        title={park.name}
+        title={<Link to={url + "/" + park.name}>{park.name}</Link>}
         actionIcon={
           <Link to={url + "/" + park.name}>
             <IconButton className={classes.iconBtn}>

@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "1rem ",
   },
   btnWrapper: {
-    marginTop: "2rem",
+    marginTop: "2.5rem",
   },
   btn: {
     color: "#fff",
